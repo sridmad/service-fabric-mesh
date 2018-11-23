@@ -1,0 +1,3 @@
+os,image_name,tag_value,official_tag_value,registry_path,build_root_relative_to_this_folder,docker_file_path_relative_to_this_folder
+linux, azure-mesh-visualobjects-worker, alpine, 6.4-alpine, seabreeze, ., worker/Dockerfile.linux
+windows, azure-mesh-visualobjects-worker, nanoserver-1709, 6.4-nanoserver-1709, seabreeze, ., worker\Dockerfile.windows
