@@ -1,3 +1,3 @@
 @echo off
-echo docker build src -f src\counterService\Dockerfile -t azure-mesh-counter:dev-nanoserver-1709
-docker build src -f src\counterService\Dockerfile -t azure-mesh-counter:dev-nanoserver-1709
+call ..\scripts\windows\build_and_publish.cmd counter.imageinfo.txt %*
+exit /b %ERRORLEVEL%
