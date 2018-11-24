@@ -1,12 +1,12 @@
-FROM microsoft/dotnet:2.1-aspnetcore-runtime-nanoserver-sac2016 AS base
+FROM microsoft/dotnet:2.1.6-aspnetcore-runtime-nanoserver-1709 AS base
 WORKDIR /app
 EXPOSE 20008
 
-FROM microsoft/dotnet:2.1-sdk-nanoserver-sac2016 AS build
+FROM microsoft/dotnet:2.1.500-sdk-nanoserver-1709 AS build
 WORKDIR /src
 COPY ToDoService/ToDoService.csproj ToDoService/
-RUN dotnet restore ToDoService/ToDoService.csproj
 COPY . .
+RUN dotnet restore ToDoService/ToDoService.csproj
 WORKDIR /src/ToDoService
 RUN dotnet build ToDoService.csproj -c Release -o /app
 
