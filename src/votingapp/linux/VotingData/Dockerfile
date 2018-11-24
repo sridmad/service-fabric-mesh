@@ -1,11 +1,11 @@
-FROM microsoft/aspnetcore:2.0 AS base
+FROM microsoft/dotnet:2.1-aspnetcore-runtime-alpine AS base
 WORKDIR /app
 
-FROM microsoft/aspnetcore-build:2.0 AS build
+FROM microsoft/dotnet:2.1-sdk-alpine AS build
 WORKDIR /src
 COPY VotingData/VotingData.csproj VotingData/
-RUN dotnet restore VotingData/VotingData.csproj
 COPY . .
+RUN dotnet restore VotingData/VotingData.csproj
 WORKDIR /src/VotingData
 RUN dotnet build VotingData.csproj -c Release -o /app
 

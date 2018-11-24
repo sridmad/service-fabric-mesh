@@ -1,11 +1,11 @@
-FROM microsoft/aspnetcore:2.0-nanoserver-1709 AS base
+FROM microsoft/dotnet:2.1.6-aspnetcore-runtime-nanoserver-1709 AS base
 WORKDIR /app
 
-FROM microsoft/aspnetcore-build:2.0 AS build
+FROM microsoft/dotnet:2.1.500-sdk-nanoserver-1709 AS build
 WORKDIR /src
 COPY VotingWeb/VotingWeb.csproj VotingWeb/
-RUN dotnet restore VotingWeb/VotingWeb.csproj
 COPY . .
+RUN dotnet restore VotingWeb/VotingWeb.csproj
 WORKDIR /src/VotingWeb
 RUN dotnet build VotingWeb.csproj -c Release -o /app
 
