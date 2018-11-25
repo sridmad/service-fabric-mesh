@@ -4,8 +4,8 @@ WORKDIR /app
 FROM microsoft/dotnet:2.1.500-sdk-nanoserver-1709 AS build
 WORKDIR /src
 COPY VotingWeb/VotingWeb.csproj VotingWeb/
-COPY . .
 RUN dotnet restore VotingWeb/VotingWeb.csproj
+COPY . .
 WORKDIR /src/VotingWeb
 RUN dotnet build VotingWeb.csproj -c Release -o /app
 

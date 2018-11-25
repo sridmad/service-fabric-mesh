@@ -5,8 +5,8 @@ EXPOSE 9072
 FROM microsoft/dotnet:2.1-sdk-alpine AS build
 WORKDIR /src
 COPY VotingWeb/VotingWeb.csproj VotingWeb/
-COPY . .
 RUN dotnet restore VotingWeb/VotingWeb.csproj
+COPY . .
 WORKDIR /src/VotingWeb
 RUN dotnet build VotingWeb.csproj -c Release -o /app
 
