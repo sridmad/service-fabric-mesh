@@ -5,8 +5,9 @@ EXPOSE 20006
 FROM microsoft/dotnet:2.1-sdk-alpine AS build
 WORKDIR /src
 COPY WebFrontEnd/WebFrontEnd.csproj WebFrontEnd/
-COPY . .
+COPY Model/Model.csproj Model/
 RUN dotnet restore WebFrontEnd/WebFrontEnd.csproj
+COPY . .
 WORKDIR /src/WebFrontEnd
 RUN dotnet build WebFrontEnd.csproj -c Release -o /app
 

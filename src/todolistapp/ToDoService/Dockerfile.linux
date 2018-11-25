@@ -5,8 +5,9 @@ EXPOSE 20008
 FROM microsoft/dotnet:2.1-sdk-alpine AS build
 WORKDIR /src
 COPY ToDoService/ToDoService.csproj ToDoService/
-COPY . .
+COPY Model/Model.csproj Model/
 RUN dotnet restore ToDoService/ToDoService.csproj
+COPY . .
 WORKDIR /src/ToDoService
 RUN dotnet build ToDoService.csproj -c Release -o /app
 
