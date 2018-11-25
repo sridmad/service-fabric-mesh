@@ -4,6 +4,7 @@ WORKDIR /app
 FROM microsoft/dotnet:2.1-sdk-alpine AS build
 WORKDIR /src
 COPY worker/worker.csproj worker/
+COPY VisualObjects.Common/VisualObjects.Common.csproj VisualObjects.Common/
 RUN dotnet restore worker/worker.csproj
 COPY . .
 WORKDIR /src/worker

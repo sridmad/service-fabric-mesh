@@ -5,6 +5,7 @@ EXPOSE 8080
 FROM microsoft/dotnet:2.1-sdk-alpine AS build
 WORKDIR /src
 COPY web/web.csproj web/
+COPY VisualObjects.Common/VisualObjects.Common.csproj VisualObjects.Common/
 RUN dotnet restore web/web.csproj
 COPY . .
 WORKDIR /src/web
